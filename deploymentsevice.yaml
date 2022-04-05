@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: clientui
+  name: clientui-deployment
   labels:
     app: clientui
     group: mcommerce
@@ -28,14 +28,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: clientui
+  name: clientui-service
   group: mcommerce
 spec:
   selector:
     app: clientui 
-  type: LoadBalancer
   ports:
   - protocol: TCP
     port: 5000
     targetPort: 4000
-    nodePort: 31110
