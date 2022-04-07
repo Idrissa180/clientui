@@ -15,7 +15,7 @@ node{
         sh "docker push enoch180/clientui:1.0"
     }
     stage("Deploying App to kubernetes"){
-        kubernetesDeploy(configs: "deploymentsevice.yaml", kubeconfigId: "kubernetes")
+        kubernetesDeploy(configs: "Deployment.yaml", kubeconfigId: "kubernetes")
     }
     
 }
