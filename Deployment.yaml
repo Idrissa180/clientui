@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: clientui
+  name: clientui-deployment
   labels:
     app: clientui
     group: mcommerce
@@ -20,7 +20,7 @@ spec:
         - name: clientui
           image: enoch180/clientui:1.0
           ports:
-            - containerPort: 80   # which port of the container is exposed to the Pod
+            - containerPort: 8000   # which port of the container is exposed to the Pod
         
         
 ---
@@ -28,7 +28,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: clientui
+  name: clientui-service
   labels: 
     group: mcommerce
 spec:
@@ -36,5 +36,5 @@ spec:
   selector:             # indicates into which pods ClusterIP provides access
     app: clientui
   ports:
-    - port: 80        # port exposed outside ClusterIP
-      targetPort: 80    # port exposed by Pod
+    - port: 8000        # port exposed outside ClusterIP
+      targetPort: 8000    # port exposed by Pod
