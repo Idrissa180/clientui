@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: clientui
-  name: clientui
+  name: clientui-deployment
 spec:
-  replicas: 2
   selector:
     matchLabels:
-      app: clientui
+      app: clientui-deployment
+  replicas: 2
   template:
     metadata:
       labels:
-        app: clientui
+        app: clientui-deployment
     spec:
       containers:
-      - image: enoch180/clientui:1.0
-        name: clientui
-        ports:
-        - containerPort: 4000
+        - name: clientui-deployment
+          image: clientui:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
