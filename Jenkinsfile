@@ -1,7 +1,7 @@
 node{
 
     stage("SCM Checkout"){
-        git credentialsId: 'git-credentials', url: 'https://github.com/enoch180/clientui.git'
+        git credentialsId: 'git-credential', url: 'https://github.com/enoch180/clientui.git'
     }
 
     stage("Build Docker Image"){
