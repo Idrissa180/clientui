@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: clientui-deployment
-          image: clientui:1.0
+          image: "enoch180/clientui:1.0"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
